@@ -1,0 +1,78 @@
+Name         : kf5-kded
+Version      : 4.99.0
+Release      : 1
+Group        : System/Base
+License      : GPLv2+
+Summary      : KDE Frameworks 5 Tier 3 addon with KDE Daemon
+Description  : |
+  KDE Frameworks 5 Tier 3 addon with KDE Daemon
+URL          : http://www.kde.org
+SetupOptions : -q -n %{name}-%{version}/upstream
+
+Sources:
+    - "%{name}-%{version}.tar.xz"
+
+RpmLintIgnore:
+    - devel-file-in-non-devel-package
+    - no-changelogname-tag
+    - library-without-ldconfig-postin
+    - library-without-ldconfig-postun
+
+Configure    : none
+Builder      : none
+
+PkgBR:
+    - kf5-rpm-macros
+    - extra-cmake-modules
+    - qt5-tools
+    - kf5-kconfig-devel
+    - kf5-kcoreaddons-devel
+    - kf5-kcrash-devel
+    - kf5-kdbusaddons-devel
+    - kf5-kdoctools-devel
+    - kf5-kinit-devel
+    - kf5-kservice-devel
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Xml
+    - Qt5Network
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Concurrent
+    - Qt5Test
+Requires:
+    - kf5-filesystem
+
+RequiresPost:
+    - /sbin/ldconfig
+RequiresPostUn:
+    - /sbin/ldconfig
+
+Files:
+    - "%doc COPYING.LIB README.md"
+    - "%{_kf5_bindir}/kded5"
+    - "%{_kf5_libdir}/libkdeinit5_kded5.so"
+    - "%{_kf5_datadir}/dbus-1/services/*.service"
+    - "%{_kf5_datadir}/kservicetypes5/*.desktop"
+    - "%{_kf5_mandir}/man8/*"
+
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications
+        that use %{name}.
+      Requires:
+          - kf5-kconfig-devel
+          - kf5-kcoreaddons-devel
+          - kf5-kcrash-devel
+          - kf5-kdbusaddons-devel
+          - kf5-kdoctools-devel
+          - kf5-kinit-devel
+          - kf5-kservice-devel
+      Files:
+          - "%{_kf5_libdir}/cmake/KDED"
+          - "%{_kf5_datadir}/dbus-1/interfaces/*.xml"
