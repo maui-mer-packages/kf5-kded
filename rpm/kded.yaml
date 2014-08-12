@@ -1,5 +1,5 @@
-Name         : kf5-kded
-Version      : 5.0.0
+Name         : kded
+Version      : 5.1.0
 Release      : 1
 Group        : System/Base
 License      : GPLv2+
@@ -25,13 +25,13 @@ PkgBR:
     - kf5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
-    - kf5-kconfig-devel
-    - kf5-kcoreaddons-devel
-    - kf5-kcrash-devel
-    - kf5-kdbusaddons-devel
-    - kf5-kdoctools-devel
-    - kf5-kinit-devel
-    - kf5-kservice-devel
+    - kconfig-devel
+    - kcoreaddons-devel
+    - kcrash-devel
+    - kdbusaddons-devel
+    - kdoctools-devel
+    - kinit-devel
+    - kservice-devel
 PkgConfigBR:
     - Qt5Core
     - Qt5DBus
@@ -53,9 +53,9 @@ Files:
     - "%doc COPYING.LIB README.md"
     - "%{_kf5_bindir}/kded5"
     - "%{_kf5_libdir}/libkdeinit5_kded5.so"
-    - "%{_kf5_datadir}/dbus-1/services/*.service"
-    - "%{_kf5_datadir}/kservicetypes5/*.desktop"
-    - "%{_kf5_mandir}/man8/*"
+    - "%{_kf5_sharedir}/dbus-1/services/*.service"
+    - "%{_kf5_servicetypesdir}/*.desktop"
+    - "%{_mandir}/man8/*"
 
 
 SubPackages:
@@ -66,13 +66,13 @@ SubPackages:
         The %{name}-devel package contains the files necessary to develop applications
         that use %{name}.
       Requires:
-          - kf5-kconfig-devel
-          - kf5-kcoreaddons-devel
-          - kf5-kcrash-devel
-          - kf5-kdbusaddons-devel
-          - kf5-kdoctools-devel
-          - kf5-kinit-devel
-          - kf5-kservice-devel
+          - kconfig-devel
+          - kcoreaddons-devel
+          - kcrash-devel
+          - kdbusaddons-devel
+          - kdoctools-devel
+          - kinit-devel
+          - kservice-devel
       Files:
           - "%{_kf5_libdir}/cmake/KDED"
-          - "%{_kf5_datadir}/dbus-1/interfaces/*.xml"
+          - "%{_kf5_dbusinterfacesdir}/*.xml"
