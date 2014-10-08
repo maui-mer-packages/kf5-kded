@@ -7,7 +7,6 @@ Summary      : KDE Frameworks 5 Tier 3 addon with KDE Daemon
 Description  : |
   KDE Frameworks 5 Tier 3 addon with KDE Daemon
 URL          : http://www.kde.org
-SetupOptions : -q -n %{name}-%{version}/upstream
 
 Sources:
     - "%{name}-%{version}.tar.xz"

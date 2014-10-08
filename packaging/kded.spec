@@ -8,12 +8,6 @@ Name:       kded
 # >> macros
 # << macros
 
-# >> bcond_with
-# << bcond_with
-
-# >> bcond_without
-# << bcond_without
-
 Summary:    KDE Frameworks 5 Tier 3 addon with KDE Daemon
 Version:    5.2.0
 Release:    1
@@ -67,7 +61,7 @@ that use %{name}.
 
 
 %prep
-%setup -q -n %{name}-%{version}/upstream
+%setup -q -n %{name}-%{version}
 
 # >> setup
 # << setup
